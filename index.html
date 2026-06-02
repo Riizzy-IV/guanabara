@@ -233,18 +233,18 @@
       </div>
       <div class="contato__form-wrap">
         <p class="contato__form-desc">Preencha os dados abaixo e receba informações exclusivas sobre o novo lançamento de Estância Guanabara</p>
-        <form class="contato__form" onsubmit="return false;">
+        <form class="contato__form" id="contatoForm">
           <div class="contato__field">
             <label>Nome completo</label>
-            <input type="text" placeholder="Insira seu nome completo" />
+            <input type="text" name="nome" placeholder="Insira seu nome completo" required />
           </div>
           <div class="contato__field">
             <label>E-mail</label>
-            <input type="email" placeholder="e-mail@e-mail.com.br" />
+            <input type="email" name="email" placeholder="e-mail@e-mail.com.br" required />
           </div>
           <div class="contato__field">
             <label>Telefone</label>
-            <input type="tel" placeholder="(xx) --------- -------" />
+            <input type="tel" name="telefone" placeholder="(xx) --------- -------" required />
           </div>
           <button type="submit" class="btn contato__submit">Solicitar contato</button>
           <label class="contato__check">

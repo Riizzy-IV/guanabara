@@ -1,3 +1,29 @@
+// Form submission
+const contatoForm = document.getElementById('contatoForm');
+contatoForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = contatoForm.querySelector('.contato__submit');
+  const data = {
+    nome: contatoForm.nome.value,
+    email: contatoForm.email.value,
+    telefone: contatoForm.telefone.value,
+  };
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  try {
+    await fetch('https://backend-pi-three-61.vercel.app/webhook/lead/d28b4d37-b79d-4fb8-9458-141bb6140a00', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    btn.textContent = 'Enviado! Em breve entraremos em contato.';
+    contatoForm.reset();
+  } catch {
+    btn.textContent = 'Erro ao enviar. Tente novamente.';
+    btn.disabled = false;
+  }
+});
+
 const header = document.getElementById('header');
 const menuBtn = document.querySelector('.header__menu-btn');
 const mobileNav = document.querySelector('.header__mobile-nav');
