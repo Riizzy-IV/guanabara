@@ -7,11 +7,17 @@ window.addEventListener('scroll', () => {
 });
 
 menuBtn?.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
+  const isOpen = mobileNav.classList.toggle('open');
+  menuBtn.classList.toggle('open', isOpen);
+  menuBtn.setAttribute('aria-expanded', isOpen);
 });
 
 mobileNav?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => mobileNav.classList.remove('open'));
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
 });
 
 // Galeria carousel — loop
