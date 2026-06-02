@@ -30,7 +30,7 @@ contatoForm?.addEventListener('submit', async (e) => {
     await fetch('https://backend-pi-three-61.vercel.app/webhook/lead/d28b4d37-b79d-4fb8-9458-141bb6140a00', {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(data),
     });
     btn.textContent = 'Enviado! Em breve entraremos em contato.';
