@@ -1,3 +1,19 @@
+// Phone mask
+const telefoneInput = document.querySelector('input[name="telefone"]');
+telefoneInput?.addEventListener('input', () => {
+  let v = telefoneInput.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length > 10) {
+    v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+  } else if (v.length > 6) {
+    v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+  } else if (v.length > 2) {
+    v = v.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+  } else {
+    v = v.replace(/^(\d*)$/, '($1');
+  }
+  telefoneInput.value = v;
+});
+
 // Form submission
 const contatoForm = document.getElementById('contatoForm');
 contatoForm?.addEventListener('submit', async (e) => {
@@ -13,6 +29,7 @@ contatoForm?.addEventListener('submit', async (e) => {
   try {
     await fetch('https://backend-pi-three-61.vercel.app/webhook/lead/d28b4d37-b79d-4fb8-9458-141bb6140a00', {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
