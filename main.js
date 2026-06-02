@@ -27,7 +27,7 @@ contatoForm?.addEventListener('submit', async (e) => {
   btn.disabled = true;
   btn.textContent = 'Enviando...';
   try {
-    await fetch('https://backend-pi-three-61.vercel.app/webhook/lead/d28b4d37-b79d-4fb8-9458-141bb6140a00', {
+    await fetch('https://hook.us1.make.com/7wi10t7xjgn7v5qcopeqk7b97f4v5sc7', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
