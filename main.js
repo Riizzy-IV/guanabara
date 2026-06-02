@@ -34,8 +34,8 @@ contatoForm?.addEventListener('submit', async (e) => {
     });
     btn.textContent = 'Enviado! Em breve entraremos em contato.';
     contatoForm.reset();
-  } catch {
-    btn.textContent = 'Erro ao enviar. Tente novamente.';
+  } catch (err) {
+    btn.textContent = 'Erro: ' + err.message;
     btn.disabled = false;
   }
 });
